@@ -4,10 +4,11 @@ import NewTodo from "./components/NewTodo";
 
 const generateRandomHex = () => {
   return Math.floor(Math.random() * 16777215).toString(16);
-}
+};
 
 function App() {
   const [todos, setTodos] = useState([]);
+
 
   const handleAddNewTodo = ({
     title,
@@ -23,7 +24,7 @@ function App() {
     setTodos((prevTodos) => {
       return [...prevTodos, newTodoItem];
     });
-  }
+  };
 
   const handleChecked = (event) => {
     const targetId = event.target.id;
@@ -42,14 +43,14 @@ function App() {
           ...todo,
           // Update checked
           checked: targetChecked,
-        }
+        };
 
         // return updated todo item
         return updatedItem;
-      })
+      });
 
       return updatedTodos;
-    })
+    });
   };
 
   return (
@@ -75,7 +76,7 @@ function App() {
         })
       }
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
