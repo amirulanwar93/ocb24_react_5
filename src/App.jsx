@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, /* useEffect */ } from 'react';
 import Card from "./components/Card";
 import NewTodo from "./components/NewTodo";
 import RegisterUser from './components/RegisterUser';
-import { getTodoList } from './api/todo';
+// import { getTodoList } from './api/todo';
 [
   {
     "_id": "6644cfc28b2ffe1f8129df78",
@@ -19,19 +19,19 @@ const generateRandomHex = () => {
 }
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [/* todos */, setTodos] = useState([]);
 
-  const [todoList, setTodoList] = useState();
+  const [todoList, /* setTodoList */] = useState();
   const token = window.localStorage.getItem('token');
 
-  const getTodoListFromApi = async () => {
-    const data = await getTodoList();
-    setTodoList(data);
-  }
+  // const getTodoListFromApi = async () => {
+  //   const data = await getTodoList();
+  //   setTodoList(data);
+  // }
 
-  useEffect(() => {
-    getTodoListFromApi();
-  }, []);
+  // useEffect(() => {
+  //   getTodoListFromApi();
+  // }, []);
 
   const handleAddNewTodo = ({
     title,

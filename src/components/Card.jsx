@@ -1,6 +1,20 @@
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import styles from '.Card.module.css';
 
 const Card = (props) => {
+  const [count, setCount] = useState(0);
+  const [itik, setItik] = useState(0);
+
+  useEffect(() => {
+    setItik((prevItik) => prevItik - 1);
+  }, [count]);
+  useEffect(() => {
+    setCount((prevCount) => prevCount - 1);
+  }, [itik]);
+
+  const handleClick = () => setCount((previousCount) => { return previousCount + 1; });
+
   return (
     <div style={{
       display: 'flex',
@@ -32,8 +46,8 @@ const Card = (props) => {
         onChange={props.toggleDone}
       />
     </div>
-  )
-}
+  );
+};
 
 Card.propTypes = {
   id: PropTypes.number || PropTypes.string,
@@ -41,6 +55,6 @@ Card.propTypes = {
   description: PropTypes.string,
   checked: PropTypes.bool,
   toggleDone: PropTypes.func,
-}
+};
 
 export default Card;
